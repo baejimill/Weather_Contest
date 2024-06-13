@@ -1,18 +1,28 @@
 import React from "react";
-import { BrowserRouter, Route, Routes, Link, useNavigate } from "react-router-dom";
-import Headers from './components/top'
+import './App.css'
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Header from './components/Header'
 import Whather from './components/Whather'
+import Login from './components/Login'
+import Signin from "./components/Signin"
+import Main from "./pages/Main"
 
 function App() {
   return (
     <BrowserRouter>
-    <div className="App">
-      <Headers/>
+   
+    <div className="flex-col flex ">
+      <Header/>
+      
       <Routes>
-        {/* <Route path="/" element={<Headers />} /> */}
+        <Route path="/" element={<Main/>}/>
         <Route path="/" element={<Whather/>}/>
+        <Route path="/login" element={<Login/>}/>
+        <Route path="/signin" element={<Signin/>}/>
       </Routes>
+   
       </div>
+     
     </BrowserRouter>
   );
 }

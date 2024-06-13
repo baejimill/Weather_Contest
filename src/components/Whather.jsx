@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 const Weather = () => {
-  const [weather, setWeather] = useState(null);
+  const [weather, setWeather] = useState();
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState();
 
   const apiKey = '636fcbd9e9a38b142cb46238fe1c98c4'; 
 
@@ -29,7 +29,7 @@ const Weather = () => {
   const fetchWeatherData = async (lat, lon) => {
     try {
       const response = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`
+        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric&lang=kr`
       );
       setWeather(response.data);
       setLoading(false);
