@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import { BsCloudDrizzleFill } from "react-icons/bs";
+import logo from '../img/icon.jpg';
 
 const navigation = [
   { name: '누적 강수량', href: '#' },
@@ -19,7 +19,7 @@ export default function Top_headers() {
         <div className="flex lg:flex-1">
           <a href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
-            <BsCloudDrizzleFill className='h-8 w-auto'/>
+            <img src={logo} alt='logo' className='h-8 w-auto'/>
           </a>
         </div>
         <div className="hidden lg:flex lg:gap-x-12">

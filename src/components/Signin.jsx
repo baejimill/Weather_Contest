@@ -1,10 +1,10 @@
 import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { BsCloudDrizzleFill } from "react-icons/bs";
+import logo from '../img/icon.jpg';
 
 export default function Signin() {
-  const [name, setName] = useState('');
+  const [username, setUserName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -18,8 +18,8 @@ export default function Signin() {
       return;
     }
     try {
-      const response = await axios.post('http://localhost:8080/api/member', {
-        name,
+      const response = await axios.post('http://localhost:8080/api/members', {
+        username,
         email,
         password,
         role: 'USER'
@@ -27,9 +27,12 @@ export default function Signin() {
       console.log('User created:', response.data);
       navigate('/');
     }catch (error) {
+      if (error.response && error.response.status === 400) {
+        alert(error.response.data); //이미 가입된 회원의 경우
+      }else{
       console.error('회원가입하는 중 오류가 발생했습니다!',  error)
     }
-
+   }
   };
 
     return (
@@ -38,7 +41,7 @@ export default function Signin() {
           <div className="w-full max-w-sm space-y-10">
             <div>
             <a href="/">
-              <BsCloudDrizzleFill className="mx-auto h-10 w-auto"/>
+            <img src={logo} alt="logo" className="mx-auto h-10 w-auto" />
               </a>
               <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
                 회원정보를 입력하세요
@@ -111,7 +114,7 @@ export default function Signin() {
               <div className="relative -space-y-px rounded-md shadow-sm">
                 <div className="pointer-events-none absolute inset-0 z-10 rounded-md ring-1 ring-inset ring-gray-300" />
                 <div>
-                  <label htmlFor="password" className="sr-only">
+                  <label htmlFor="name" className="sr-only">
                     이름(닉네임)
                   </label>
                   <input
@@ -122,8 +125,8 @@ export default function Signin() {
                     required
                     className="relative block w-full rounded-b-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-100 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
                     placeholder=" 이름(닉네임)"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
+                    value={username}
+                    onChange={(e) => setUserName(e.target.value)}
                   />
                 </div>
               </div>
