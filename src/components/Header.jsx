@@ -7,7 +7,7 @@ const navigation = [
   { name: '누적 강수량', href: '#' },
   { name: '지역별 강수량', href: '#' },
   { name: '예측 누적 강수량', href: '#' },
-  { name: '모델 비교', href: '#' },
+  { name: '게시판', href: '/board' },
 ]
 
 export default function Top_headers() {
@@ -35,7 +35,7 @@ export default function Top_headers() {
           </a>
           <a
             href="signin"
-            className="rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            className="rounded-xl bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >
             회원 가입
           </a>

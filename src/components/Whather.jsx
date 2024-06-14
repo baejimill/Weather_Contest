@@ -47,12 +47,24 @@ const Weather = () => {
     return <p>{error}</p>;
   }
 
+  const {name, sys, main, weather:weatherInfo} = weather;
+  const weatherIcconUrl = `http://openweathermap.org/img/wn/${weatherInfo[0].icon}@2x.png`;
+
   return (
-    <div>
-      <h1>실시간 날씨 정보</h1>
-      <p>위치: {weather.name}, {weather.sys.country}</p>
-      <p>온도: {weather.main.temp}°C</p>
-      <p>설명: {weather.weather[0].description}</p>
+    <div className='p-20 mt-20'>
+    <div className=" max-w-xs bg-blue-800 text-white shadow-lg rounded-lg overflow-hidden">
+      <div className="bg-blue-300 text-white text-center py-4">
+      <h1 className="font-bold p-2"> 실시간 날씨 정보 </h1>
+      </div>
+      <div className='p-2'>
+        <div className='flex-justify-center mb-4'>
+      <p> {weather.name}, {weather.sys.country}</p>
+          <img src={weatherIcconUrl} alt='Weather Icon' className='h-16 w-16'/>
+          </div>
+      <p>{weather.main.temp}°C</p>
+      <p> {weather.weather[0].description}</p>
+    </div>
+    </div>
     </div>
   );
 };
