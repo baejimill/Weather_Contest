@@ -2,34 +2,40 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import logo from '../img/icon.jpg';
+import { useSetRecoilState } from 'recoil';
+import { isLoggedInState, usernameState } from '../recoil/atom';
 
-export default function Login({ onLogin }) {
+export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  const setIsLoggedIn = useSetRecoilState(isLoggedInState);
+  const setUsername = useSetRecoilState(usernameState);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
       const response = await axios.post('http://localhost:8080/login', { email, password });
-      console.log(response)
-      const mockResponse = { success: true, username: response.data.username };
+      console.log("Server response",response) // 서버 응답을 로그로 출력하여 확인 
 
-      if (mockResponse.success) {
-        onLogin(mockResponse.username);
-        navigate('/'); // 로그인 후 메인 페이지로 이동
+      const token = response.headers['authorization'];
+      const username = response.data.username;
+
+      if (token && username) {
+        localStorage.setItem('token', token); // 로컬 스토리지에 token 저장
+        localStorage.setItem('username', username); // 로컬 스토리지에 username 저장
+        setIsLoggedIn(true);
+        setUsername(username);
+        navigate('/');//로그인 후 메인 페이지로 이동
       } else {
         alert('로그인 실패');
       }
-
-      const token = response.data.jwt;
-      localStorage.setItem('token', token);
-      console.log('logged in:', response.data);
-      navigate('/');
     } catch (error) {
       console.error('로그인 중 오류가 발생했습니다!', error);
+      alert('로그인 중 오류가 발생했습니다!');
     }
   };
+
 
   return (
     <div className="flex min-h-full flex-1 items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
