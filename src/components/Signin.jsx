@@ -1,6 +1,8 @@
 import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useSetRecoilState } from 'recoil';
+import { isLoggedInState, usernameState } from '../recoil/atom';
 import logo from '../img/icon.jpg';
 
 export default function Signin() {
@@ -9,6 +11,8 @@ export default function Signin() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
+  const setIsLoggedIn = useSetRecoilState(isLoggedInState);
+  const setRecoilUsername = useSetRecoilState(usernameState);
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
@@ -25,10 +29,22 @@ export default function Signin() {
         role: 'USER'
       });
       console.log('User created:', response.data);
+
+      //회원가입 후 자동 로그인 처리
+      const loginResponse = await axios.post('http://localhost:8080/login', { email, password });
+      const { token } = loginResponse.data;
+
+      // 토큰과 사용자 이름을 로컬 스토리지와 Recoil 상태에 저장
+      localStorage.setItem('token', token);
+      localStorage.setItem('username', username);
+      setIsLoggedIn(true);
+      setRecoilUsername(username);
+
       navigate('/');
+
     }catch (error) {
       if (error.response && error.response.status === 400) {
-        alert(error.response.data); //이미 가입된 회원의 경우
+        alert('이미 가입한 회원입니다! '); //이미 가입된 회원의 경우
       }else{
       console.error('회원가입하는 중 오류가 발생했습니다!',  error)
     }

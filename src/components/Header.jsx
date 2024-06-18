@@ -38,7 +38,7 @@ export default function TopHeaders() {
     setUsername('');
     localStorage.removeItem('token');
     localStorage.removeItem('username');
-    navigate('/login');
+    // navigate('/login');
   };
 
   return (
