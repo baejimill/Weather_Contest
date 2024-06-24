@@ -5,12 +5,12 @@ import {
   Bars3Icon,
   BellIcon,
   CalendarIcon,
-  ChartPieIcon,
   Cog6ToothIcon,
   DocumentDuplicateIcon,
-  FolderIcon,
+  CloudIcon,
+  ChartBarIcon,
   HomeIcon,
-  UsersIcon,
+  UserIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, MagnifyingGlassIcon } from '@heroicons/react/20/solid'
@@ -21,10 +21,10 @@ import { isLoggedInState, usernameState } from '../recoil/atom'
 
 const navigation = [
   { name: '홈', href: '/', icon: HomeIcon, current: true },
-  { name: '예측 모델', href: '/prediction', icon: UsersIcon, current: false },
-  { name: '누적 강수량 시각화', href: '/graph', icon: FolderIcon, current: false },
+  { name: '예측 모델', href: '/prediction', icon: CloudIcon, current: false },
+  { name: '누적 강수량 시각화', href: '/graph', icon: ChartBarIcon, current: false },
   { name: '게시판', href: '/board', icon: CalendarIcon, current: false },
-  { name: '마이페이지', href: '/mypage', icon: DocumentDuplicateIcon, current: false },
+  { name: '마이페이지', href: '/mypage', icon: UserIcon, current: false },
 ];
 
 const userNavigation = [
@@ -99,7 +99,7 @@ export default function TopHeaders() {
                     <div className="flex h-16 shrink-0 items-center">
                     <img src={logo} alt="위닝" className="h-8 w-auto" />
                     </div>
-                    <nav className="flex flex-1 flex-col">
+                    <nav className="mt-5 flex flex-1 flex-col">
                       <ul role="list" className="flex flex-1 flex-col gap-y-7">
                         <li>
                           <ul role="list" className="-mx-2 space-y-1">
@@ -160,7 +160,7 @@ export default function TopHeaders() {
                 위닝
               </Link>
             </div>
-            <nav className="flex flex-1 flex-col">
+            <nav className="mt-5 flex flex-1 flex-col">
               <ul role="list" className="flex flex-1 flex-col gap-y-7">
                 <li>
                   <ul role="list" className="-mx-2 space-y-1">
