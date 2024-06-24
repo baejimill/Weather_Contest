@@ -5,6 +5,7 @@ import logo from '../img/icon.jpg';
 import { useSetRecoilState } from 'recoil';
 import { isLoggedInState, usernameState } from '../recoil/atom';
 
+
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -32,13 +33,14 @@ export default function Login() {
       }
     } catch (error) {
       console.error('로그인 중 오류가 발생했습니다!', error);
-      alert('로그인 중 오류가 발생했습니다!');
+      alert('아이디나 비밀번호를 확인해주세요!');
     }
   };
 
 
   return (
-    <div className="flex min-h-full flex-1 items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
+    <>   
+    <div className="mt-40 flex min-h-full flex-1 items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
       <div className="w-full max-w-sm space-y-10">
         <div>
           <a href="/">
@@ -83,7 +85,7 @@ export default function Login() {
           </div>
 
           <div className="flex items-center justify-between">
-            <div className="flex items-center">
+            <div className=" flex items-center">
               <input
                 id="remember-me"
                 name="remember-me"
@@ -120,5 +122,6 @@ export default function Login() {
         </p>
       </div>
     </div>
+</>
   );
 }

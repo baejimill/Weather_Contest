@@ -1,12 +1,18 @@
 import React from "react";
-import Header from '../components/Header'
-import Whather from '../components/Whather'
+import Simple_centered from '../components/Simple_centered';
 
-export default function Login() {
-    return (
-        <div className="flex  bg-cover w-full h-screen">
-          <Whather/>
+import Top_Header from '../components/Top_Header';
 
-        </div>
-    )
+export default function Main() {
+  return (
+    <div>
+      <div>
+        <Top_Header/>
+       
+      </div>
+      <div>
+        <Simple_centered />
+      </div>
+    </div>
+  );
 }

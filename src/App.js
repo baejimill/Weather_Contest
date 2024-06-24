@@ -2,7 +2,6 @@ import React from "react";
 import './App.css';
 import { RecoilRoot } from 'recoil';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Header from './components/Header';
 import Weather from './components/Whather'
 import Login from './components/Login';
 import Signin from "./components/Signin";
@@ -15,7 +14,6 @@ function App() {
     <RecoilRoot>
       <BrowserRouter>
         <div className="flex-col flex">
-          <Header />
 
           <Routes>
             <Route path="/" element={<Main />} />
@@ -25,7 +23,7 @@ function App() {
             <Route path="/board" element={<Board />} />
           </Routes>
         </div>
-        <Footer />
+        {/* <Footer /> */}
       </BrowserRouter>
     </RecoilRoot>
   );

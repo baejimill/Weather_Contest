@@ -44,16 +44,17 @@ export default function Signin() {
 
     }catch (error) {
       if (error.response && error.response.status === 400) {
-        alert('이미 가입한 회원입니다! '); //이미 가입된 회원의 경우
+        
       }else{
       console.error('회원가입하는 중 오류가 발생했습니다!',  error)
+      alert('이미 가입한 회원입니다! '); //이미 가입된 회원의 경우
     }
    }
   };
 
     return (
         
-        <div className="flex min-h-full flex-1 items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
+        <div className="mt-20 flex min-h-full flex-1 items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
           <div className="w-full max-w-sm space-y-10">
             <div>
             <a href="/">

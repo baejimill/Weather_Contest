@@ -11,7 +11,7 @@ const Board = () => {
     };
 
     return (
-        <div className="max-w-4xl mx-auto p-10">
+        <div className="max-w-4xl mx-auto p-10 mt-20">
             <h1 className="text-3xl font-bold text-center">자주하는 질문</h1>
 
             <div className="mt-5 bg-white shadow-lg rounded-lg p-6 mb-6">
@@ -27,12 +27,7 @@ const Board = () => {
               </p>
           </div>
         </details>  
-                {/* <details>
-        <summary class="py-2 outline-none cursor-pointer focus:underline">How can I place an order?</summary>
-        <div class="px-4 pb-4">
-          <p>You can easily place an order on our website by browsing our product catalog, selecting the items you want, and adding them to your cart. Then, proceed to checkout, where you can provide your shipping and payment information to complete the order.</p>
-        </div>
-             </details> */}
+         
                 </div>
             </div>
 
@@ -41,11 +36,11 @@ const Board = () => {
 
          <details className="group">
           <summary className="text-xl font-bold mb-4 cursor-pointer group-open:mb-4 outline-none focus:underline">
-            아 진짜 하기 싫어 나혼자 어쩌라는거야
+            어떤 기능을 구현하나요?
           </summary>
           <div className="space-y-4">
               <p className="text-gray-700">
-               난 아무것도 모르는 감자인데 뭘 하라는거야 이러다 다 죽어ㅜㅜ
+              이 프로젝트는 강수량을 예측하고 계급구간으로 나누며, 제공된 데이터를 기반으로 강수량 그래프를 그립니다. 이를 통해 사용자는 미래 강수량을 예측할 수 있으며, 과거 강수량 데이터를 시각적으로 쉽게 확인할 수 있습니다.
               </p>
           </div>
         </details>  
