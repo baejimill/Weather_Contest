@@ -5,8 +5,9 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Weather from './components/Whather'
 import Login from './components/Login';
 import Signin from "./components/Signin";
-import Main from "./pages/Main";
-import Board from "./pages/Board";
+import Main from "./pages/MainPage";
+import Board from "./components/Board";
+import PredictionPage from "./pages/PredictionPage";
 import Footer from './components/Footer';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/signin" element={<Signin />} />
             <Route path="/board" element={<Board />} />
+            <Route path="/prediction" element={<PredictionPage/>}/>
           </Routes>
         </div>
         {/* <Footer /> */}
