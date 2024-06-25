@@ -6,8 +6,9 @@ import Weather from './components/Whather'
 import Login from './components/Login';
 import Signin from "./components/Signin";
 import Main from "./pages/MainPage";
-import Board from "./components/Board";
+import BoardPage from "./pages/BoardPage"
 import PredictionPage from "./pages/PredictionPage";
+import GraphPage from "./pages/GraphPage"
 import Footer from './components/Footer';
 
 function App() {
@@ -21,8 +22,9 @@ function App() {
             <Route path="/weather" element={<Weather />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signin" element={<Signin />} />
-            <Route path="/board" element={<Board />} />
+            <Route path="/board" element={<BoardPage />} />
             <Route path="/prediction" element={<PredictionPage/>}/>
+            <Route path="/graph" element={<GraphPage/>}/>
           </Routes>
         </div>
         {/* <Footer /> */}

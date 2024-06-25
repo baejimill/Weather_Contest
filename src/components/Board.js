@@ -1,4 +1,3 @@
-
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -11,62 +10,77 @@ const Board = () => {
     };
 
     return (
-        <div className="max-w-4xl mx-auto p-10 mt-20">
-            <h1 className="text-3xl font-bold text-center">자주하는 질문</h1>
+      <div className="flex flex-col items-center justify-start h-screen py-10 sm:py-10 lg:px-8 lg:pl-72">
+        <div className="max-w-4xl mx-auto p-10">
+            <div className="flex items-center justify-center mb-6">
+                <div className="flex-grow border-t border-gray-300"></div>
+                <span className="mx-4 text-3xl font-bold text-center text-blue-500">자주하는 질문</span>
+                <div className="flex-grow border-t border-gray-300"></div>
+            </div>
 
-            <div className="mt-5 bg-white shadow-lg rounded-lg p-6 mb-6">
-                <div className="space-y-4">
-
-         <details className="group">
-          <summary className="text-xl font-bold mb-4 cursor-pointer group-open:mb-4 outline-none focus:underline">
-            이 프로젝트는 어떤 프로젝트인가요?
-          </summary>
-          <div className="space-y-4">
-              <p className="text-gray-700">
-                이 프로젝트는 기상청에서 제공하는 데이터를 사용하여 누적 강수량을 예측하는 모델을 만드는 것을 목표로 합니다.
-              </p>
-          </div>
-        </details>  
-         
+            <div className="mb-6">
+                <div className="divide-y">
+                    <details className="group p-4">
+                        <summary className="flex justify-between items-center text-xl mb-2 cursor-pointer group-open:mb-2 outline-none focus:underline">
+                        이 프로젝트는 어떤 프로젝트인가요?
+                            <svg className="w-5 h-5 text-blue-500 group-open:rotate-180 transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </summary>
+                        <div className="space-y-2 bg-gray-100 p-4 rounded-md">
+                            <p className="text-gray-700">
+                            기상청에서 제공하는 데이터를 사용하여 누적 강수량을 예측하는 모델을 만드는 것을 목표로 합니다.
+                            </p>
+                        </div>
+                    </details>
+                    <details className="group p-4">
+                        <summary className="flex justify-between items-center text-xl mb-2 cursor-pointer group-open:mb-2 outline-none focus:underline">
+                        어떤 기능을 구현하나요?
+                            <svg className="w-5 h-5 text-blue-500 group-open:rotate-180 transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </summary>
+                        <div className="space-y-2 bg-gray-100 p-4 rounded-md">
+                            <p className="text-gray-700">
+                            강수량을 예측하고 계급구간으로 나누며, 제공된 데이터를 기반으로 강수량 그래프를 그립니다. 이를 통해 사용자는 미래 강수량을 예측할 수 있으며, 과거 강수량 데이터를 시각적으로 쉽게 확인할 수 있습니다
+                            </p>
+                        </div>
+                    </details>
+                    <details className="group p-4">
+                        <summary className="flex justify-between items-center text-xl mb-2 cursor-pointer group-open:mb-2 outline-none focus:underline">
+                        어쩌구저쩌구어쩌꾸쩌저구구
+                            <svg className="w-5 h-5 text-blue-500 group-open:rotate-180 transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </summary>
+                        <div className="space-y-2 bg-gray-100 p-4 rounded-md">
+                            <p className="text-gray-700">
+                            나는 파리의 택시 운전사~ 하지만 프랑스의 택시운전자는 아니다~~!
+                            </p>
+                        </div>
+                    </details>
+                    <details className="group p-4">
+                        <summary className="flex justify-between items-center text-xl mb-2 cursor-pointer group-open:mb-2 outline-none focus:underline">
+                           이건 누가 만들었나요?
+                            <svg className="w-5 h-5 text-blue-500 group-open:rotate-180 transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </summary>
+                        <div className="space-y-2 bg-gray-100 p-4 rounded-md">
+                            <p className="text-gray-700">
+                              저요~~!!~!
+                            </p>
+                        </div>
+                    </details>
                 </div>
             </div>
 
-            <div className="mt-5 bg-white shadow-lg rounded-lg p-6 mb-6">
-                <div className="space-y-4">
-
-         <details className="group">
-          <summary className="text-xl font-bold mb-4 cursor-pointer group-open:mb-4 outline-none focus:underline">
-            어떤 기능을 구현하나요?
-          </summary>
-          <div className="space-y-4">
-              <p className="text-gray-700">
-              이 프로젝트는 강수량을 예측하고 계급구간으로 나누며, 제공된 데이터를 기반으로 강수량 그래프를 그립니다. 이를 통해 사용자는 미래 강수량을 예측할 수 있으며, 과거 강수량 데이터를 시각적으로 쉽게 확인할 수 있습니다.
-              </p>
-          </div>
-        </details>  
-                </div>
-            </div>
-
-            <div className="mt-5 bg-white shadow-lg rounded-lg p-6 mb-6">
-                <div className="space-y-4">
-
-         <details className="group">
-          <summary className="text-xl font-bold mb-4 cursor-pointer group-open:mb-4 outline-none focus:underline">
-            어쩌구저쩌구어쩌꾸쩌저구구
-          </summary>
-          <div className="space-y-4">
-              <p className="text-gray-700">
-               나는 파리의 택시 운전사~ 하지만 프랑스의 택시운전자는 아니다~~!
-              </p>
-          </div>
-        </details>  
-                </div>
-            </div>
-            <div className="flex justify-end">
+            <div className="flex justify-end mt-6">
                 <button onClick={handleAskQuestion}
                 className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 focus:outline-none focus:right-2 focus:ring-blue-600"
                 >질문하기</button>
             </div>
+        </div>
         </div>
     );
 };

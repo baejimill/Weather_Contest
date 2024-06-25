@@ -1,18 +1,34 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
-export default function FeatureForm({ onSubmit }) {
+export default function FeatureForm() {
   const [stn4contest, setStn4contest] = useState('');
   const [efYear, setEfYear] = useState('');
   const [efMonth, setEfMonth] = useState('');
   const [efDay, setEfDay] = useState('');
   const [efHour, setEfHour] = useState('');
+  const [prediction, setPrediction] = useState(null);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    onSubmit({ stn4contest, efYear, efMonth, efDay, efHour });
+    try {
+      const response = await axios.post('http://localhost:5000/predict', {
+        stn4contest,
+        efYear,
+        efMonth,
+        efDay,
+        efHour,
+      });
+      setPrediction(response.data);
+    } catch (error) {
+      console.error('결과를 가져오는데 오류 발생:', error);
+    }
   };
 
-  const stn4contests = Array.from({ length: 20 }, (_, i) => `STN${String(i + 1).padStart(3, '0')}`);
+  const stn4contests = [
+    ...Array.from({ length: 20 }, (_, i) => `STN${String(i + 1).padStart(3, '0')}`),
+    ...Array.from({ length: 5 }, (_, i) => `STN${String(i + 31).padStart(3, '0')}`)
+  ];
   const years = ['A', 'B', 'C', 'D'];
   const months = [5, 6, 7, 8, 9, 10];
   const days = Array.from({ length: 31 }, (_, i) => i + 1);
@@ -28,7 +44,7 @@ export default function FeatureForm({ onSubmit }) {
               id="stn4contest"
               value={stn4contest}
               onChange={(e) => setStn4contest(e.target.value)}
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
             >
               <option value="">AWS 지점 코드</option>
               {stn4contests.map((stn4contest) => (
@@ -42,7 +58,7 @@ export default function FeatureForm({ onSubmit }) {
               id="efYear"
               value={efYear}
               onChange={(e) => setEfYear(e.target.value)}
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
             >
               <option value="">년도</option>
               {years.map((year) => (
@@ -56,7 +72,7 @@ export default function FeatureForm({ onSubmit }) {
               id="efMonth"
               value={efMonth}
               onChange={(e) => setEfMonth(e.target.value)}
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
             >
               <option value="">월</option>
               {months.map((month) => (
@@ -70,7 +86,7 @@ export default function FeatureForm({ onSubmit }) {
               id="efDay"
               value={efDay}
               onChange={(e) => setEfDay(e.target.value)}
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
             >
               <option value="">일</option>
               {days.map((day) => (
@@ -84,7 +100,7 @@ export default function FeatureForm({ onSubmit }) {
               id="efHour"
               value={efHour}
               onChange={(e) => setEfHour(e.target.value)}
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
             >
               <option value="">시간</option>
               {hours.map((hour) => (
@@ -94,11 +110,17 @@ export default function FeatureForm({ onSubmit }) {
           </div>
         </div>
         <div className="w-full sm:w-auto">
-          <button type="submit" className="w-full py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+          <button type="submit" className="w-full py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2">
             예측 결과 보기
           </button>
         </div>
       </form>
+      {prediction && (
+        <div className="mt-8 w-full sm:w-auto">
+          <h2 className="text-lg font-semibold">예측 결과:</h2>
+          <pre className="mt-2 p-4 bg-gray-100 rounded-md">{JSON.stringify(prediction, null, 2)}</pre>
+        </div>
+      )}
     </div>
   );
 }
