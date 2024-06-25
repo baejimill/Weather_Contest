@@ -99,11 +99,19 @@ export default function LocationChart({ filters }) {
     });
   };
 
+  const options = {
+    plugins: {
+      legend: {
+        display: false,
+      },
+    },
+  };
+
   return (
-    <div className="bg-white shadow-lg rounded-lg p-6 mb-6">
+    <div className="bg-white shadow-lg rounded-lg p-6 m-5">
       <h2 className="text-lg font-semibold mb-4">지점별 누적 강수량</h2>
       {chartData && chartData.labels && chartData.labels.length > 0 && (
-        <Bar data={chartData} />
+        <Bar data={chartData} options={options} />
       )}
     </div>
   );

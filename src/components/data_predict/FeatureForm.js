@@ -20,7 +20,7 @@ export default function FeatureForm({ onSubmit }) {
   const days = Array.from({ length: 31 }, (_, i) => i + 1);
 
   return (
-    <div className="flex flex-col items-center justify-start h-screen py-24 sm:py-32 lg:px-8 lg:pl-72">
+    <div className="flex flex-col items-center justify-start py-24 sm:py-32 lg:px-8 lg:pl-72">
     <form onSubmit={handleSubmit} className="space-y-4 w-full flex flex-col items-center">
         <div className="flex flex-wrap justify-center gap-4 w-full">
           <div className="w-full sm:w-auto">

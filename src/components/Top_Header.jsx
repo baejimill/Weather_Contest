@@ -1,4 +1,3 @@
-
 import { Fragment, useState } from 'react'
 import { Dialog, Menu, Transition } from '@headlessui/react'
 import {
@@ -19,12 +18,12 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import { isLoggedInState, usernameState } from '../recoil/atom'
 
-const navigation = [
-  { name: '홈', href: '/', icon: HomeIcon, current: true },
-  { name: '예측 모델', href: '/prediction', icon: CloudIcon, current: false },
-  { name: '누적 강수량 시각화', href: '/graph', icon: ChartBarIcon, current: false },
-  { name: '게시판', href: '/board', icon: CalendarIcon, current: false },
-  { name: '마이페이지', href: '/mypage', icon: UserIcon, current: false },
+const navigationItems = [
+  { name: '홈', href: '/', icon: HomeIcon },
+  { name: '예측 모델', href: '/prediction', icon: CloudIcon },
+  { name: '누적 강수량 시각화', href: '/graph', icon: ChartBarIcon },
+  { name: '게시판', href: '/board', icon: CalendarIcon },
+  { name: '마이페이지', href: '/mypage', icon: UserIcon },
 ];
 
 const userNavigation = [
@@ -40,6 +39,7 @@ export default function TopHeaders() {
   const [isLoggedIn, setIsLoggedIn] = useRecoilState(isLoggedInState);
   const [username, setUsername] = useRecoilState(usernameState);
   const navigate = useNavigate();
+  const location = useLocation();
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const handleLogout = () => {
@@ -103,12 +103,12 @@ export default function TopHeaders() {
                       <ul role="list" className="flex flex-1 flex-col gap-y-7">
                         <li>
                           <ul role="list" className="-mx-2 space-y-1">
-                            {navigation.map((item) => (
+                            {navigationItems.map((item) => (
                               <li key={item.name}>
                                 <Link
                                   to={item.href}
                                   className={classNames(
-                                    item.current
+                                    location.pathname === item.href
                                       ? 'bg-gray-50 text-blue-600'
                                       : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50',
                                     'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'
@@ -116,7 +116,7 @@ export default function TopHeaders() {
                                 >
                                   <item.icon
                                     className={classNames(
-                                      item.current ? 'text-blue-600' : 'text-gray-400 group-hover:text-blue-600',
+                                      location.pathname === item.href ? 'text-blue-600' : 'text-gray-400 group-hover:text-blue-600',
                                       'h-6 w-6 shrink-0'
                                     )}
                                     aria-hidden="true"
@@ -164,12 +164,12 @@ export default function TopHeaders() {
               <ul role="list" className="flex flex-1 flex-col gap-y-7">
                 <li>
                   <ul role="list" className="-mx-2 space-y-1">
-                    {navigation.map((item) => (
+                    {navigationItems.map((item) => (
                       <li key={item.name}>
                         <Link
                           to={item.href}
                           className={classNames(
-                            item.current
+                            location.pathname === item.href
                               ? 'bg-gray-50 text-blue-600'
                               : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50',
                             'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'
@@ -177,7 +177,7 @@ export default function TopHeaders() {
                         >
                           <item.icon
                             className={classNames(
-                              item.current ? 'text-blue-600' : 'text-gray-400 group-hover:text-blue-600',
+                              location.pathname === item.href ? 'text-blue-600' : 'text-gray-400 group-hover:text-blue-600',
                               'h-6 w-6 shrink-0'
                             )}
                             aria-hidden="true"
