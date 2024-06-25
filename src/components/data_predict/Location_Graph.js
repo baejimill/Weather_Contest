@@ -31,14 +31,66 @@ export default function LocationChart({ filters }) {
       {
         label: 'v01',
         data: data.map(item => item.v01),
-        backgroundColor: 'rgba(75, 192, 192, 0.6)',
+        borderColor: 'rgba(75, 192, 192, 0.6)',
+        backgroundColor: 'rgba(75, 192, 192, 0.3)',
+        fill: false,
       },
       {
         label: 'v02',
         data: data.map(item => item.v02),
-        backgroundColor: 'rgba(153, 102, 255, 0.6)',
+        borderColor: 'rgba(255, 99, 132, 0.6)',
+        backgroundColor: 'rgba(255, 99, 132, 0.3)',
+        fill: false,
       },
-      // 필요한 경우 v03~v09에 대한 데이터셋을 추가합니다.
+      {
+        label: 'v03',
+        data: data.map(item => item.v03),
+        borderColor: 'rgba(54, 162, 235, 0.6)',
+        backgroundColor: 'rgba(54, 162, 235, 0.3)',
+        fill: false,
+      },
+      {
+        label: 'v04',
+        data: data.map(item => item.v04),
+        borderColor: 'rgba(255, 206, 86, 0.6)',
+        backgroundColor: 'rgba(255, 206, 86, 0.3)',
+        fill: false,
+      },
+      {
+        label: 'v05',
+        data: data.map(item => item.v05),
+        borderColor: 'rgba(75, 192, 192, 0.6)',
+        backgroundColor: 'rgba(75, 192, 192, 0.3)',
+        fill: false,
+      },
+      {
+        label: 'v06',
+        data: data.map(item => item.v06),
+        borderColor: 'rgba(153, 102, 255, 0.6)',
+        backgroundColor: 'rgba(153, 102, 255, 0.3)',
+        fill: false,
+      },
+      {
+        label: 'v07',
+        data: data.map(item => item.v07),
+        borderColor: 'rgba(255, 159, 64, 0.6)',
+        backgroundColor: 'rgba(255, 159, 64, 0.3)',
+        fill: false,
+      },
+      {
+        label: 'v08',
+        data: data.map(item => item.v08),
+        borderColor: 'rgba(153, 102, 255, 0.6)',
+        backgroundColor: 'rgba(153, 102, 255, 0.3)',
+        fill: false,
+      },
+      {
+        label: 'v09',
+        data: data.map(item => item.v09),
+        borderColor: 'rgba(255, 159, 64, 0.6)',
+        backgroundColor: 'rgba(255, 159, 64, 0.3)',
+        fill: false,
+      },
     ];
 
     setChartData({

@@ -1,6 +1,7 @@
 import React from "react";
 import Simple_centered from '../components/Simple_centered';
 import Top_Header from '../components/Top_Header';
+import Footer from '../components/Footer'
 
 export default function Main() {
   return (
@@ -10,7 +11,7 @@ export default function Main() {
       </div>
       <div>
         <Simple_centered />
-     
+        <Footer/>
       </div>
       
     </div>

@@ -20,7 +20,7 @@ const Board = () => {
 
             <div className="mb-6">
                 <div className="divide-y">
-                    <details className="group p-4">
+                    <details className="group p-4" open>
                         <summary className="flex justify-between items-center text-xl mb-2 cursor-pointer group-open:mb-2 outline-none focus:underline">
                         이 프로젝트는 어떤 프로젝트인가요?
                             <svg className="w-5 h-5 text-blue-500 group-open:rotate-180 transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -33,7 +33,7 @@ const Board = () => {
                             </p>
                         </div>
                     </details>
-                    <details className="group p-4">
+                    <details className="group p-4" open>
                         <summary className="flex justify-between items-center text-xl mb-2 cursor-pointer group-open:mb-2 outline-none focus:underline">
                         어떤 기능을 구현하나요?
                             <svg className="w-5 h-5 text-blue-500 group-open:rotate-180 transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -46,7 +46,7 @@ const Board = () => {
                             </p>
                         </div>
                     </details>
-                    <details className="group p-4">
+                    <details className="group p-4" open>
                         <summary className="flex justify-between items-center text-xl mb-2 cursor-pointer group-open:mb-2 outline-none focus:underline">
                         어쩌구저쩌구어쩌꾸쩌저구구
                             <svg className="w-5 h-5 text-blue-500 group-open:rotate-180 transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -59,7 +59,7 @@ const Board = () => {
                             </p>
                         </div>
                     </details>
-                    <details className="group p-4">
+                    <details className="group p-4" open>
                         <summary className="flex justify-between items-center text-xl mb-2 cursor-pointer group-open:mb-2 outline-none focus:underline">
                            이건 누가 만들었나요?
                             <svg className="w-5 h-5 text-blue-500 group-open:rotate-180 transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -81,7 +81,7 @@ const Board = () => {
                 >질문하기</button>
             </div>
         </div>
-        </div>
+      </div>
     );
 };
 
