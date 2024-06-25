@@ -99,7 +99,7 @@ export default function TimeSeries_Graph({ filters }) {
   };
 
   return (
-    <div className="bg-white shadow-lg rounded-lg p-6 mb-6">
+    <div className="bg-white shadow-lg rounded-lg p-6 m-5 w-full ">
       <h2 className="text-lg font-semibold mb-4">시간에 따른 누적 강수량</h2>
       {chartData && chartData.labels && chartData.labels.length > 0 && (
         <Line data={chartData} options={options} />

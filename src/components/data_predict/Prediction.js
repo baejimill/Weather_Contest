@@ -12,7 +12,7 @@ export default function FeatureForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/predict', {
+      const response = await axios.post('http://localhost:8080/api/features', {
         stn4contest,
         efYear,
         efMonth,
@@ -118,7 +118,7 @@ export default function FeatureForm() {
       {prediction && (
         <div className="mt-8 w-full sm:w-auto">
           <h2 className="text-lg font-semibold">예측 결과:</h2>
-          <pre className="mt-2 p-4 bg-gray-100 rounded-md">{JSON.stringify(prediction, null, 2)}</pre>
+          <pre className="mt-2 p-4 bg-gray-100 rounded-md">{prediction.class_intervals} {prediction.predictions}</pre>
         </div>
       )}
     </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import logo from '../img/icon.jpg';
 
 const Board = () => {
   const navigate = useNavigate();
@@ -10,13 +11,27 @@ const Board = () => {
 
   return (
     <div className="flex flex-col items-center justify-start h-screen py-10 sm:py-10 lg:px-8 lg:pl-72">
-      <div className="max-w-4xl mx-auto p-10 w-full">
-        <div className="flex items-center justify-center mb-6">
-          <div className="flex-grow border-t border-gray-300"></div>
-          <span className="mx-4 text-3xl font-bold text-center text-blue-500">자주하는 질문</span>
-          <div className="flex-grow border-t border-gray-300"></div>
+      {/* 배너 추가 */}
+      <div className="relative w-full">
+        <img src={logo} alt="배너" className="w-full h-48 object-cover" />
+        <div className="absolute inset-0 bg-blue-600 opacity-75"></div>
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
+          <h1 className="text-4xl font-bold">자주하는 질문</h1>
+          <p className="mt-2 text-center max-w-2xl">
+            프로젝트와 관련된 주요 질문들을 모아놓은 자주하는 질문 게시판입니다. 
+            원하는 답변이 없으면 마이페이지 1:1질문페이지를 이용해주세요.
+          </p>
         </div>
+      </div>
 
+      <div className="max-w-4xl mx-auto p-10 w-full">
+        
+        <div className="mb-6 w-full">
+          <div className="flex justify-between items-center mb-4">
+            <h2 className="text-2xl font-semibold">자주하는 질문</h2>
+          </div>
+         
+        {/* 드롭다운 질문 목록 */}
         <div className="mb-6 w-full">
           <div className="divide-y">
             <details className="group p-4 w-full">
@@ -27,7 +42,7 @@ const Board = () => {
                 </svg>
               </summary>
               <div className="space-y-2 bg-gray-100 p-4 rounded-md w-full">
-                <p className="text-gray-700 ">
+                <p className="text-gray-700">
                   기상청에서 제공하는 데이터를 사용하여 누적 강수량을 예측하는 모델을 만드는 것을 목표로 합니다.
                 </p>
               </div>
@@ -71,15 +86,13 @@ const Board = () => {
                 </p>
               </div>
             </details>
+            <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 focus:outline-none focus:right-2 focus:ring-blue-600" onClick={handleAskQuestion}>
+              질문하기
+            </button>
           </div>
         </div>
-
-        <div className="flex justify-end mt-6">
-          <button onClick={handleAskQuestion}
-            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 focus:outline-none focus:right-2 focus:ring-blue-600"
-          >질문하기</button>
-        </div>
       </div>
+    </div>
     </div>
   );
 };
