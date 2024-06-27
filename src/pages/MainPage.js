@@ -11,7 +11,7 @@ export default function Main() {
       </div>
       <div>
         <Simple_centered />
-        <Footer/>
+        {/* <Footer/> */}
       </div>
       
     </div>

@@ -10,6 +10,7 @@ import BoardPage from "./pages/BoardPage"
 import PredictionPage from "./pages/PredictionPage";
 import GraphPage from "./pages/GraphPage"
 import Footer from './components/Footer';
+import MyPage from './pages/MyPage'
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Route path="/board" element={<BoardPage />} />
             <Route path="/prediction" element={<PredictionPage/>}/>
             <Route path="/graph" element={<GraphPage/>}/>
+            <Route path="/mypage" element={<MyPage/>}/>
           </Routes>
         </div>
         {/* <Footer /> */}

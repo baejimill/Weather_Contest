@@ -25,8 +25,7 @@ export default function Signin() {
       const response = await axios.post('http://localhost:8080/api/members', {
         username,
         email,
-        password,
-        role: 'USER'
+        password
       });
       console.log('User created:', response.data);
 
